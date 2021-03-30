@@ -6,14 +6,6 @@ Created on Thu Feb 18 20:14:22 2021
 @author: teles
 """
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 17 15:40:11 2021
-
-@author: teles
-"""
-
 # ------------------------------------------------
 ### IMPORTS ###
 
