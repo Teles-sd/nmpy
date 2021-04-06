@@ -43,10 +43,10 @@ def fourier(func, dt, freq_max):
     Wf = N
     
     dt = mpfr(dt)
-    t = [ dt*n for n in range(N) ]
+    t = [ n*dt for n in range(N) ]
     
     dw = mpfr(freq_max) / (N-1)
-    f = [ dw*n for n in range(N) ]
+    f = [ w*dw for w in range(N) ]
     
     G = [0] * Wf
     

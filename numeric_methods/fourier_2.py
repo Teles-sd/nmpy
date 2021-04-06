@@ -90,6 +90,10 @@ def inv_fourier(transf, dt, freq_max):
 
 # make a sum of sine waves that is o slide
 
+# use a 10-th of N
+# frequency *10
+# put 2*pi on sine, take it from from f_max
+# make plot ticks on multiples of 2*pi
 N = 1256
 
 dt = 0.02

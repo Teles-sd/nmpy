@@ -1,0 +1,269 @@
+% \documentclass[11pt,largemargins]{homework}
+\documentclass[11pt]{homework}
+
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\hwname}{Lucas Teles dos Santos}
+\newcommand{\hwemail}{20150684002}
+\newcommand{\hwtype}{LISTA}
+\newcommand{\hwnum}{01}
+\newcommand{\hwclass}{}
+\newcommand{\hwlecture}{}
+\newcommand{\hwsection}{}
+
+\renewcommand{\questiontype}{Questão}
+
+\begin{document}
+    \maketitle
+    
+    \question Integral numérica.
+    
+    \begin{equation*}
+        \pmb{\mathcal{I}} = \int_2^3 ( \cos(x) - \ln(x) ) \,dx
+    \end{equation*}
+    
+    \begin{alphaparts}
+        
+        \questionpart Integração direta (método das fitas).
+        
+        \textbf{Método:}
+        \begin{align*}
+            & N_i = I_\text{max} + 1\\
+            & i \in \mathbb{Z}\\
+            & i \in [0, I_\text{max}]\\
+            & \Delta x = \frac{b-a}{N_i}
+        \end{align*}
+        \begin{equation*}
+            \int_a^b f(x) \,dx \approx \Delta x \sum_{i=0}^{I_\text{max}} f(a+(i+ \tfrac{1}{2})\Delta x)
+        \end{equation*}
+        
+        \textbf{Resolução:}\\
+        $N_i = 5$; $I_\text{max} = 4$\\
+        $a=2$; $b=3$\\
+        $\Delta x = \frac{3-2}{5} = \frac{1}{5} = \pmb{0.2}$\\
+        $f(x) = \cos(x) - \ln(x)$
+        \begin{align*}
+            \pmb{\mathcal{I}} \approx & 0.2 \cdot [ f(2 + (\tfrac{1}{2})\cdot0.2) + f(2 + (1\tfrac{1}{2})\cdot0.2) + f(2 + (2\tfrac{1}{2})\cdot0.2) +\\
+            & \qquad f(2 + (3\tfrac{1}{2})\cdot0.2) + f(2 + (4\tfrac{1}{2})\cdot0.2) ]\\
+            \\
+            \approx & 0.2 \cdot [ f(2.1) + f(2.3) + f(2.5) + f(2.7) + f(2.9) ]\\
+            \approx & 0.2 \cdot [ -1.24678 - 1.49919 - 1.71743 - 1.89732 - 2.03567 ]\\
+            \pmb{\mathcal{I}} \approx & -1.679278
+        \end{align*}
+        
+        
+        \newpage
+        \questionpart Integração por parábolas, intervalo $2\leq x \leq 3$, 6 pontos.
+        
+        \textbf{Método:}
+        \begin{align*}
+            & N_i = I_\text{max}\\
+            & i \in \mathbb{Z}\\
+            & i \in [0, I_\text{max}]\\
+            & \Delta x = \frac{b-a}{N_i}
+        \end{align*}     
+        \begin{gather*}
+            f(x) \approx y = Ax^2 + Bx + C \therefore 
+            \begin{cases}
+            Ax_0^2 + Bx_0 + C = f(x_0) \\
+            Ax_1^2 + Bx_1 + C = f(x_1) \\
+            Ax_2^2 + Bx_2 + C = f(x_2)
+            \end{cases}\\
+            \\
+            \int_{x_0}^{x_2} f(x) \,dx \approx \int_{x_0}^{x_2} y \,dx = \left[A \cdot \frac{x^3}{3} + B \cdot \frac{x^2}{2} + C \cdot x \right]_{x_0}^{x_2}
+        \end{gather*}
+        
+        \textbf{Resolução:}\\
+        $N_i = 5$; $I_\text{max} = 5$\\
+        $a=2$; $b=3$\\
+        $\Delta x = \frac{3-2}{5} = \frac{1}{5} = \pmb{0.2}$\\
+        $f(x) = \cos(x) - \ln(x)$
+        \begin{align*}
+            x_0 & = 2.0   & f(x_0) & = -1.10929 \\
+            x_1 & = 2.2   & f(x_1) & = -1.37695 \\
+            x_2 & = 2.4   & f(x_2) & = -1.61286 \\
+            x_3 & = 2.6   & f(x_3) & = -1.81240 \\
+            x_4 & = 2.8   & f(x_4) & = -1.97184 \\
+            x_5 & = 3.0   & f(x_5) & = -2.08860
+        \end{align*}
+        \begin{align*}
+            \begin{cases}
+            A_1  x_0^2 + B_1  x_0 + C_1   = f(x_0) \\
+            A_1  x_1^2 + B_1  x_1 + C_1   = f(x_1) \\
+            A_1  x_2^2 + B_1  x_2 + C_1   = f(x_2)
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_1  (2.0)^2 + B_1  (2.0) + C_1   = -1.10929 \\
+            A_1  (2.2)^2 + B_1  (2.2) + C_1   = -1.37695 \\
+            A_1  (2.4)^2 + B_1  (2.4) + C_1   = -1.61286
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_1   &= 0.39701\\
+            B_1   &= -3.00575\\
+            C_1   &= 3.31418
+            \end{cases}\\
+        \end{align*}
+        \begin{align*}
+            \begin{cases}
+            A_2  x_2^2 + B_2  x_2 + C_2   = f(x_2) \\
+            A_2  x_3^2 + B_2  x_3 + C_2   = f(x_3) \\
+            A_2  x_4^2 + B_2  x_4 + C_2   = f(x_4)
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_2  (2.4)^2 + B_2  (2.4) + C_2   = -1.61286 \\
+            A_2  (2.6)^2 + B_2  (2.6) + C_2   = -1.81240 \\
+            A_2  (2.8)^2 + B_2  (2.8) + C_2   = -1.97184
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_2   &= 0.50120\\
+            B_2   &= -3.50370\\
+            C_2   &= 3.90909
+            \end{cases}\\
+        \end{align*}
+        \begin{align*}
+            \begin{cases}
+            A_3  x_3^2 + B_3  x_3 + C_3   = f(x_3) \\
+            A_3  x_4^2 + B_3  x_4 + C_3   = f(x_4) \\
+            A_3  x_5^2 + B_3  x_5 + C_3   = f(x_5) \\
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_3  (2.6)^2 + B_3  (2.6) + C_3   = -1.81240 \\
+            A_3  (2.8)^2 + B_3  (2.8) + C_3   = -1.97184 \\
+            A_3  (3.0)^2 + B_3  (3.0) + C_3   = -1.61286
+            \end{cases}
+            & \to 
+            \begin{cases}
+            A_3   &= 0.53348\\
+            B_3   &= -3.67801\\
+            C_3   &= 4.14409
+            \end{cases}\\
+        \end{align*}
+        
+        \begin{align*}
+            \pmb{\mathcal{I}} \approx &
+            \left[A_1  \frac{x^3}{3} + B_1  \frac{x^2}{2} + C_1  x \right]_{x_0}^{x_2} + 
+            \left[A_2  \frac{x^3}{3} + B_2  \frac{x^2}{2} + C_2  x \right]_{x_2}^{x_4} + 
+            \left[A_3  \frac{x^3}{3} + B_3  \frac{x^2}{2} + C_3  x \right]_{x_4}^{x_5} \\
+            \\
+            \approx & \ 
+                [ 1.126875812964030 - 1.67554183832941 ] +\\
+            & \ [ 0.878419503878535 - 1.60070650416725 ] + \\
+            & \ [ 0.682555129628827 - 1.08931109280790 ]
+            \\
+            \pmb{\mathcal{I}} \approx & \ -1.67770898883318
+        \end{align*}
+
+    \end{alphaparts}
+    
+    \newpage
+    \question
+    \begin{alphaparts}
+        
+        \questionpart Utilize série de Taylor para deduzir a aproximação:
+        
+        \begin{equation*}
+            \frac{df(x)}{dx} \approx \frac{Af(x+2\Delta x) + Bf(x+\Delta x) + Cf(x) + Df(x-1\Delta x) + Ef(x-2\Delta x)}{\Delta x}
+        \end{equation*}
+        
+        \textbf{Resolução:}
+        
+        \begin{align*}
+            f(x+2\Delta x) & =\ 
+            f(x) + 2\Delta xf^{(1)}(x) +4\Delta x^2\frac{f^{(2)}(x)}{2} +8\Delta x^3\frac{f^{(3)}(x)}{6} + 16\Delta x^4\frac{f^{(4)}(x)}{24} + [\sim 0]\\
+            f(x+\Delta x) & =\ 
+            f(x) + \Delta xf^{(1)}(x) +\Delta x^2\frac{f^{(2)}(x)}{2} +\Delta x^3\frac{f^{(3)}(x)}{6} + \Delta x^4\frac{f^{(4)}(x)}{24} + [\sim 0]\\
+            f(x) & =\
+            f(x) \\
+            f(x-\Delta x) & =\ 
+            f(x) - \Delta xf^{(1)}(x) +\Delta x^2\frac{f^{(2)}(x)}{2} -\Delta x^3\frac{f^{(3)}(x)}{6} + \Delta x^4\frac{f^{(4)}(x)}{24} + [\sim 0]\\
+            f(x-2\Delta x) & =\ 
+            f(x) - 2\Delta xf^{(1)}(x) +4\Delta x^2\frac{f^{(2)}(x)}{2} -8\Delta x^3\frac{f^{(3)}(x)}{6} + 16\Delta x^4\frac{f^{(4)}(x)}{24} + [\sim 0]\\
+        \end{align*}
+        
+        Substituindo na equação:
+        
+        \begin{align*}
+            \Delta x\frac{df(x)}{dx} \approx
+             \qquad \qquad  f(x) & (A+B+C+D+E)\ &+ &&\\
+             +\ \Delta xf^{(1)}(x) & (2A+B-D-2E)\ &+ &&\\
+             +\ \Delta x^2\frac{f^{(2)}(x)}{2} & (4A+B+D+4E)\ &+ &&\\
+             +\ \Delta x^3\frac{f^{(3)}(x)}{6} & (8A+B-D-8E)\ &+ &&\\
+             +\ \Delta x^4\frac{f^{(4)}(x)}{24} & (16A+B+D+16E)\ &+ && 
+        \end{align*}
+        
+        Para que isso seja verdadeiro o sistema deve ser satisfeito:
+        
+        \begin{align*}
+            \begin{cases}
+            A+B+C+D+E &= 0\\
+            2A+B-D-2E &= 1\\
+            4A+B+D+4E &= 0\\
+            8A+B-D-8E &= 0\\
+            16A+B+D+16E &= 0\\
+            \end{cases}
+            & \qquad \qquad\to 
+            \begin{cases}
+            A &= -\frac{1}{12}\\
+            B &= \frac{8}{12}\\
+            C &= 0\\
+            D &= -\frac{8}{12}\\
+            E &= \frac{1}{12}
+            \end{cases}\\
+        \end{align*}
+        
+        A aproximação é:
+        
+        \begin{equation*}
+            \frac{df(x)}{dx} \approx \frac{-f(x+2\Delta x) + 8f(x+\Delta x) - 8f(x-1\Delta x) + f(x-2\Delta x)}{12\Delta x}
+        \end{equation*}
+
+        
+        \questionpart Qual é a ordem da aproximação?
+        
+        Quarta ordem pois a expansão da série de Taylor usou 5 termos.
+
+    \end{alphaparts}
+    
+    \question Calcular a série de Taylor para $f(x)=1/x$, em torno de $x=1$.
+    
+    \textbf{Fórmula:}
+    
+    \begin{equation}
+        f(x) = \sum_{n=0}^\infty \left[ \frac{f^{(n)}(a)}{n!}(x-a)^n \right]
+    \end{equation}
+    
+    \textbf{Resolução:}
+    
+    \begin{align*}
+        f(x)
+        = & \frac{f^{(0)}(1)}{0!}(x-1)^0 + \frac{f^{(1)}(1)}{1!}(x-1)^1 + \frac{f^{(2)}(1)}{2!}(x-1)^2 + \frac{f^{(3)}(1)}{3!}(x-1)^3 + \frac{f^{(4)}(1)}{4!}(x-1)^4 + \cdots \\
+        \\
+        = & f^{(0)}(1)\frac{(x-1)^0}{0!} + f^{(1)}(1)\frac{(x-1)^1}{1!} + f^{(2)}(1)\frac{(x-1)^2}{2!} + f^{(3)}(1)\frac{(x-1)^3}{3!} + f^{(4)}(1)\frac{(x-1)^4}{4!} + \cdots \\
+        \\
+        = & [x^{-1}]_{x=1}\frac{1}{1} + [(-1)x^{-2}]_{x=1}\frac{(x-1)^1}{1!} + [(-1)(-2)x^{-3}]_{x=1}\frac{(x-1)^2}{2!} + \\ + & [(-1)(-2)(-3)x^{-4}]_{x=1}\frac{(x-1)^3}{3!} + [(-1)(-2)(-3)(-4)x^{-5}]_{x=1}\frac{(x-1)^4}{4!} + \cdots \\
+        \\
+        = & [x^{-1}]_{x=1} + (1!)[-x^{-2}]_{x=1}\frac{(x-1)^1}{1!} + (2!)[x^{-3}]_{x=1}\frac{(x-1)^2}{2!} + \\ + & (3!)[-x^{-4}]_{x=1}\frac{(x-1)^3}{3!} + (4!)[x^{-5}]_{x=1}\frac{(x-1)^4}{4!} + \cdots \\
+        \\
+        = & [1] + [-1](x-1)^1 + [1](x-1)^2 + [-1](x-1)^3 + [1](x-1)^4 + \cdots \\
+        \\
+        f(x)
+        = & 1 + -(x-1)^1 + (x-1)^2 + -(x-1)^3 + (x-1)^4 + \cdots \\
+        \\
+    \end{align*}
+
+    
+    
+    
+    
+
+\end{document}
